@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DiagramDesigner"
+                    xmlns:c="clr-namespace:DiagramDesigner.Controls">
+
+   <Style x:Key="LogicalOperatorItemStyle" TargetType="Path">
+        <Setter Property="Stroke" Value="#888"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeLineJoin" Value="Round"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Data" Value="M 0,10 L 10,0 L 20,10 L 10,20 Z"/>
+        <Setter Property="Fill" Value="#9bb5ff" />
+    </Style>
+
+    <Style x:Key="LogicalOperator_DragControl" TargetType="Path" BasedOn="{StaticResource LogicalOperatorItemStyle}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <s:Menu x:Key="LogicalOperatorStencils" ItemSize="50,50">
+        <ItemsControl.Items >
+            <Grid>
+                <Path Style="{StaticResource LogicalOperatorItemStyle}" ToolTip="AND">
+                <s:DiagramElement.DragControlTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource LogicalOperator_DragControl}"/>
+                    </ControlTemplate>
+                </s:DiagramElement.DragControlTemplate>
+                </Path>
+                <TextBlock Text="AND" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+            </Grid>
+            <Grid>
+                <Path Style="{StaticResource LogicalOperatorItemStyle}" ToolTip="OR">
+                <s:DiagramElement.DragControlTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource LogicalOperator_DragControl}"/>
+                    </ControlTemplate>
+                </s:DiagramElement.DragControlTemplate>
+            </Path>
+            <TextBlock Text="OR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+            </Grid>
+            <Grid>
+                <Path Style="{StaticResource LogicalOperatorItemStyle}" ToolTip="XOR">
+                <s:DiagramElement.DragControlTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource LogicalOperator_DragControl}"/>
+                    </ControlTemplate>
+                </s:DiagramElement.DragControlTemplate>
+            </Path>
+            <TextBlock Text="XOR" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+            </Grid>
+
+
+        </ItemsControl.Items> 
+  </s:Menu> 
+</ResourceDictionary>
